@@ -1257,7 +1257,7 @@ while x != '':
 print(res)  
 '''
 
-
+'''
 prih=0
 rash=0
 a=input()
@@ -1276,27 +1276,574 @@ while a != 'END':
                 rash=rash+int(a)
     a=input()
 print(prih, rash)
+'''
+
+'''
+#EVKLID
+x, y = map(int, input().split())
+a,b = x, y
+if a < b:
+    a,b=b,a
+while a%b != 0:
+    ost=a%b
+    a=b
+    b=ost
+NOD=b
+NOK=int((x*y)/NOD)
+print (NOD, NOK)
+'''
+
+
+'''
+def kvadr(x):
+    for i in range(2,(x-x%2)+2,2):
+        print(i**2)
+a=int(input())
+b=int(input())
+if a>b:
+    c=a
+else:
+    c=b
+kvadr(c)
+'''
+
+'''
+a = map(int, input().split())
+b=True
+for i in a:
+    if b:
+        pred=i
+        b=False
+        continue
+    sled = i
+    if sled>pred:
+        print(sled, end=' ')
+    pred = i
+'''
+
+
+    
+    
+'''
+a=map(int,input().split())
+great1=next(a)
+great2=next(a)
+if great1<great2:
+    great1,great2=great2,great1
+for i in a:
+    if i>=great1:
+        great2=great1
+        great1=i
+    elif i>=great2:
+        great2=i
+print(great1,great2)
+'''
+'''
+class Gun:
+    pass
+'''
+'''
+class Gun:
+    pass
+tt=Gun()
+revolver=Gun()
+'''
+
+
+
+'''
+class Segment1:
+    """ Одномерный отрезок. """
+    def length(seg):
+        """ Возвращает длину отрезка seg. """
+        d = seg.finish - seg.start
+        return d
+# тут объявление класса закончено, можно его использовать
+
+
+# использование класса:
+a = Segment1()
+a.start = 2
+a.finish = 10
+
+
+d = Segment1.length(a) # OR d = a.length()
+
+print(f'Отрезок a от {a.start} до {a.finish} длиной {d}')   # Отрезок a от 2 до 10 длиной 8
+'''
+
+
+
+
+'''
+class Segment1:
+    """ Одномерный отрезок. """
+
+
+    def length(self):
+        """ Возвращает длину отрезка. """
+        return self.finish - self.start
+
+
+a = Segment1()
+a.start = 2
+a.finish = 10
+
+
+d = a.length()
+print(f'Отрезок a от {a.start} до {a.finish} длиной {d}')   # Отрезок a от 2 до 10 длиной 8
+'''
+
+
+'''
+class Bag:
+    def __init__(self, money=0, book='Общая физика'):
+        self.money = money
+        self.book = book
+
+#sumka = Bag(money=50)                       OK
+#sumka = Bag(100)                            OK
+#sumka = Bag(money=60, book='Математика')   OK
+#sumka = Bag(book='Биология', money=70)    OK
+#sumka = Bag()                            OK
+#sumka = Bag(book='История')
+
+print('OK')  
+'''
+
+
+'''
+class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+
+    def __repr__(self):
+        return f'({self.x}, {self.y})'
+
+def shift(p, dx, dy):
+    p.x = p.x + dx
+    p.y = p.y + dy
+
+
+a = Point(2, 3)
+print(a)          # (2, 3)
+shift(a, -5, 1)
+print(a)          # (-3, 4)
+'''
+
+'''
+class Point:
+    def __init__ (self,x=0,y=0):
+        self.x=x
+        self.y=y
+    
+    def __repr__ (self):
+        return(f'({self.x},{self.y})')
+    
+    def shift (self,dx=0,dy=0):
+        self.dx=dx
+        self.dy=dy
+        self.x=self.x+self.dx
+        self.y=self.y+self.dy
+    
+    def rotate180(self):
+        return Point(-self.x, -self.y)
+    
+    #def dist (self):
+        
+
+
+x = int(input())
+y = int(input())
+
+t1 = Point(x, y)
+#print('t1',t1.x, t1.y)
+#t2=t1
+#print('t2',t2.x,t2.y)
+#t2=t2.rotate180
+t2 = t1.rotate180()
+#print('t2',t2.x,t2.y)
+
+print(t1)
+print(type(t1))
+print(t2)
+print(type(t2))
+'''
+
+
+'''
+class Point:
+    def __init__ (self,x=0,y=0):
+        self.x=x
+        self.y=y
+    
+    def __repr__ (self):
+        return(f'({self.x},{self.y})')
+    
+    def shift (self,dx=0,dy=0):
+        self.dx=dx
+        self.dy=dy
+        self.x=self.x+self.dx
+        self.y=self.y+self.dy
+    
+    def rotate180(self):
+        return Point(-self.x, -self.y)
+    
+    def dist (self,other=None):
+        if other==None:
+            other.x=0
+            other.y=0
+        #self.x2=x
+        #self.y2=y
+        self.distance=sqrt((other.x-self.x)**2+(other.y-self.y)**2)
+        return self.distance
+    
+from math import sqrt
+
+x, y = map(int, input().split())
+t1 = Point(x, y)
+
+x, y = map(int, input().split())
+t2 = Point(x, y)
+
+d = t1.dist(t2)
+print(round(d, 3))
+'''
+
+
+
+'''
+def left(a,b,c):
+    if a.x<b.x and a.x<c.x:
+        return a
+    elif b.x<a.x and b.x<c.x:
+        return b
+    else:
+        return c
+
+print(left(a,b,c)) 
+'''
+
+
+'''
+class Circle:
+    def __init__(self,radius=1):
+        self.radius=radius
+        
+    #def __repr__(self):
+        
+        
+    def length(self):
+        l=self.radius*2*pi
+        return l
+    
+    def area(self):
+        s=(self.radius**2)*pi
+        return s
+    
+    def zoom(self, k):
+        self.radius=self.radius*k
+        
+from math import pi
+
+
+r = float(input())
+k = int(input())
+
+a = Circle(r)
+print(a.radius)
+print(a.length())
+print(a.area())
+
+a.zoom(k)
+print(a.radius)
+'''
+
+'''
+Принадлежит точка кругу?
+Даны классы (их не надо реализовывать, они уже есть в проверяющей системе):
+
+class Circle с атрибутами x, y, radius - координатами центра окружности и радиусом окружности.
+class Point с атрибутами x, y - координатами точки
+методом dist(other), который возвращает расстояние до точки other.
+Даны переменные:
+
+circle - ссылается на окружность (объект класса Circle)
+point - ссылается на точку (объект класса Point)
+Реализовать и послать:
+
+функцию inside(circle, point) - возвращает лежит ли точка point внутри окружности circle.
+напечатайте результат вызова функции print(inside(circle, point))
+'''
+
+'''
+def inside(circle,point):
+    r=point.dist(circle)
+    if r>circle.radius:
+        return False
+    else:
+        return True
+
+print(inside(circle,point))
+'''
+'''
+class Circle:
+    def __init__(self,x=0,y=0,radius=0):
+        self.x=x
+        self.y=y
+        self.radius=radius
+        
+    def __repr__(self):
+        return (f'x={x}, y={y}, r={radius}')
+    
+    def length(self):
+            return 2 * pi * self.radius    
+    
+    def area(self):
+        return pi * self.radius ** 2    
+    
+
+Допустим, что мы забыли о math.pi, не знаем о numpy.pi и в гугле нас тоже забанили. Хотим объявить переменную pi в классе Circle.
+
+Если мы напишем в конструкторе self.pi = 3.1415, то мы:
+
+Будем использовать лишнюю память, храня 
+p
+i
+pi для каждой окружности.
+Будет трудно перейти "на лету" к более точному значению 
+p
+i
+pi, потому что у каждой окружности своя личная 
+p
+i
+pi и нужно найти все окружности и поменять значение у каждой из них.
+По логике 
+p
+i
+pi - общая для всех окружностей величина. И принадлежит всем окружностям, как идеи. Хочется в классе иметь возможность определить атрибут (переменную), который принадлежит классу целиком, а не конкретному экземпляру класса.
+
+Это можно сделать, если написать атрибут вне методов:
+    
+    
+class Circle:
+    pi = 3.1415
+
+
+    def __init__(self, x, y, radius):
+        self.x = x
+        self.y = y
+        self.radius = radius
+
+
+    def length(self):
+        return 2 * Circle.pi * self.radius
+
+
+    def area(self):
+        return Circle.pi * self.radius ** 2  
+        
+
+Атрибут класса - это переменная, которая определена внутри класса, но вне любого метода (экземпляра класса)
+Обращение к атрибуту класса имя_класса.атрибут
+На самом деле, все в языке - объекты. И сам класс целиком описывает так называемый "class object", один на каждый класс. Он содержит в себе все такие переменные класса. (Ничего нового: объект, в нем есть переменная, только синтаксис для доступа к этому объекту непривычный).
+
+Создадим несколько экземпляров класса Circle:
+
+a = Circle(x=1, y=2, radius=4.5)
+b = Circle(x=-6, y=-1.5, radius=10.7)
+
+
+print(a.radius)     # 4.5
+print(b.y)          # -1.5
+print(Circle.pi)    # 3.1415
             
-    
-
-
-    
-    
-  
         
+Так как каждый объект имеет доступ к описанию всего класса (то есть class object, на рисунке более темный объект). Class object один на весь класс. Все экземпляры класса имеют доступ к этому объекту. Поэтому обратиться к экземпляру класса можно как по ссылке на сам класс, так и по ссылке на любой объект этого класса:
 
-    
-        
+print(Circle.pi)    # 3.1415
+print(a.pi)         # 3.1415
+print(b.pi)         # 3.1415
+Изменить значение атрибута класса тоже можно по ссылке на сам класс или на любой из объектов этого класса уберите от экрана математиков:
+
+Circle.pi = 100
+print(a.pi)         # 100
+b.pi = 777
+print(a.pi)         # 777
+Атрибут pi класса Circle - это одно место в памяти, общее для всех объектов этого класса, к которому можно доступиться или через имя класса, или через ссылку на любой объект.
+
+Не путайте:
+
+атрибут экземпляра класса - характеризует один конкретный объект (радиус конкретной окружности, a.x).
+атрибут класса - характеризует весь класс целиком; нельзя сказать, что это характеристика одного экземпляра класса и у другого экземпляра этого же класса она будет другая, Circle.pi        
+'''
+
+'''
+class Cat:
+    leg_number = 4
+    voice = 'мяу'
+
+
+    def __init__(self, color, name, gender, chip_id=None):
+        self.color = color
+        self.name = name
+        self.gender = gender
+        self.chip_id = chip_id
+
+
+    def set_chip(self, chip_id):
+        self.chip_id = chip_id
+
+
+    @staticmethod
+    def is_valid(color, name, gender):
+        if gender == 'кот' or gender == 'кошка':
+            return True
+        return False
+
+
+    @staticmethod
+    def create(csv_str):
+        """ Создает из строки вида 'имя;цвет;пол', пол задается как 'самка' или 'самец'."""
+        name, color, gender = csv_str.split(';')
+        match gender:
+            case 'самец': gender = 'кот'
+            case 'самка': gender = 'кошка'
+            case '_': raise ValueError(f'gender={gender}')
             
+
+
+#animal = Cat.create('серый;Пушок;самец')
+#Cat.is_valid('рыжий', 'Рыжик', 'кот')
+#kitty = animal.create('коричневый;Мурка;самка')   NO WORK
+#Cat.set_chip(123)                                 ERROR
+#kitty.set_chip(45678)                             NO WORK
+'''
+
+
+'''
+Форма подачи материала. Видео пока нет (планируем после написания всех курсов). Насколько подробный текст. Есть ли примеры кода.
+Много ли в курсе задач или там только синтаксические тренажеры вида "выбери один ответ из двух".
+Разбираются ли специфические темы для языка. Да, в первой же части рассказ про функции и ООП.
+Для кого? Можно ли на нем учиться, если не умеешь программировать? Да, именно для таких и сделан. 
+Оцените разницу вашего уровня программирования до и после курса.
+Общение с авторами. Ответы на комментарии и в чате дискорда.
+Не бросайте чат. Отвечайте на вопросы новых учеников. Разбирайте что у них не работает и что они не понимают. Умению быстро понять чужой код и найти в нем ошибку удобно учиться на этих мини-вопросах в канале. И повышает самооценку :)
+Порекомендуете вы этот курс другим студентам? Или лучше это время потратить на чтение книги по python / другой курс?
+'''
+
+
+
+    
+'''    
+n=int(input())
+b=True
+s=0
+
+p=1
+i=0
+
+while b:        
+        if n < (10**p):                
+                s=s+(n-(10**(p-1)-1))*p
+        else:
+                s=s+((10**p-1)-((10**(p-1)-1)))*p                
+        if n%(10**p) == n:                
+                b=False                
+        p=p+1     
         
-        
+print(p-2, s)
+'''
+'''
+n=int(input())
+answer = input().split()
+res, res1, flag, flag1 = 0, 0, True, False
+for i in range(n):  # ПЕРВЫЙ ГОВОРИТ ПРАВДУ
+	if i != n-1:
+		if flag: # проверяемый говорит правду
+			if answer[i] == '0':        # если проверяемый говорит что следующий врет
+				res += 1
+				flag = False            # не важно что скажет следующий потому что это будет лож и нужно сменить flag
+			elif answer[i] == '1':      # если проверяемый говорит что следующий говорит правду
+				res += 1                # то flag не меняется потому что следующий говорит правду
+		else:  # если проверяющий врет
+			if answer[i] == '0':        # если проверяемый говорит что следующий врет и сам при этом что врет, то следующий говорит правду
+				flag = True             # меняем флаг
+										# если проверяемый говорит что следующий говорит правду и сам при этом врет, то следующий врет
+
+	else: # проверяем последнего с первым
+		if flag: # проверяемый говорит правду
+			if answer[i] == '1':        # если проверяемый говорит что первый говорит правду
+				res += 1
+			elif answer[i] == '0':      # если проверяемый говорит что первый врет
+				flag = False            # не важно что скажет первый потому что это будет лож и нужно сменить flag
+for i in range(n): # ПЕРВЫЙ ВРЕТ
+	if i != n-1:
+		if not flag1:   # проверяемый заведомо врет
+			if answer[i] == '0':        # если проверяемый говорит что следующий врет и сам при это врет, то следующий говорит правду
+				flag1 = True            # меняем флаг
+										# если проверяемый говорит что следующий говорит правду и сам при этом врет и сам при это врет, то следующий врет
+		else:           # проверяемый говорит правду
+			if answer[i] == '0':        # если проверяемый говорит что следующий врет и сам при это говорит правду, то следующий врет
+				res1 += 1
+				flag1 = False           # меняем флаг
+			elif answer[i] == '1':      # если проверяемый говорит что следующий говорит правду и сам при говорит правду, то следующий говорит правду
+				res1 += 1
+	else:   # проверяем последнего с первым
+		if not flag1:   # проверяемый заведомо врет
+			if answer[i] == '0':        # если проверяемый говорит что следующий врет и сам при это врет, то следующий говорит правду
+				flag1 = True            # меняем флаг
+										# если проверяемый говорит что следующий говорит правду и сам при этом врет и сам при это врет, то следующий врет
+		else:   # проверяемый говорит правду
+			if answer[i] == '0':        # если проверяемый говорит что следующий врет и сам при это говорит правду, то следующий врет
+				res1 += 1
+				flag1 = False           # меняем флаг
+			elif answer[i] == '1':      # если проверяемый говорит что следующий говорит правду и сам при говорит правду, то следующий говорит правду
+				res1 += 1
+
+print(res if res <= res1 else res1)
+'''    
     
 
+'''
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+moskow_tz = ZoneInfo("Europe/Moscow")
+
+t1 = datetime(2023,4,1,12,30,0, tzinfo=moskow_tz)
+print(t1)  # 2023-04-01 12:30:00+03:00
+'''
+'''
+from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
+dt = input()
+q = int(dt[20:22])
+w = int(dt[23:25])
+r= dt[19]
+#print(dt, q, w, dt, r)
+dt = datetime.fromisoformat(dt)
+
+if r=='+':
+	moscow_tz = ZoneInfo("Europe/Moscow")
+	tz_0346 = timezone(offset=-timedelta(hours=3, minutes=46))
+	dt_utc = (dt - timedelta(hours=3+q, minutes=46+w)).replace(tzinfo=tz_0346)
+	dt_moscow = (dt - timedelta(hours=q-3, minutes=w-0)).replace(tzinfo=moscow_tz)
+elif r=='-':
+	moscow_tz = ZoneInfo("Europe/Moscow")
+	tz_0346 = timezone(offset=-timedelta(hours=3, minutes=46))
+	dt_utc = (dt - timedelta(hours=-3+q, minutes=-46+w)).replace(tzinfo=tz_0346)
+	dt_moscow = (dt + timedelta(hours=q+3, minutes=w+0)).replace(tzinfo=moscow_tz)
+
+print(dt_utc.isoformat('T'))
+print(dt_moscow.isoformat('T'))
+'''
 
 
 
 
     
-    
-       
+ 
     
